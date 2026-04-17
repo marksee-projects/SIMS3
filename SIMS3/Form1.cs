@@ -104,5 +104,25 @@ namespace SIMS3
         {
             openChildForm(new ManageForm());
         }
+
+        private void btnprint1_Click(object sender, EventArgs e)
+        {
+            openChildForm(new PrintStudent());
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            openChildForm(new CourseForm());
+        }
+
+        private void btnMC_Click(object sender, EventArgs e)
+        {
+            openChildForm(new ManageCourseForm());
+        }
+
+        private void btnPrint2_Click(object sender, EventArgs e)
+        {
+            openChildForm(new PrintCourseForm());
+        }
     }
 }

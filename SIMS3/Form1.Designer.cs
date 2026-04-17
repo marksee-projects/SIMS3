@@ -192,7 +192,7 @@
             button1.Location = new Point(0, 125);
             button1.Name = "button1";
             button1.Padding = new Padding(21, 0, 21, 0);
-            button1.Size = new Size(238, 57);
+            button1.Size = new Size(259, 57);
             button1.TabIndex = 5;
             button1.Text = "Disable/Enable";
             button1.TextAlign = ContentAlignment.MiddleRight;
@@ -209,7 +209,7 @@
             btnResetPass.Location = new Point(0, 65);
             btnResetPass.Name = "btnResetPass";
             btnResetPass.Padding = new Padding(21, 0, 15, 0);
-            btnResetPass.Size = new Size(238, 57);
+            btnResetPass.Size = new Size(259, 57);
             btnResetPass.TabIndex = 4;
             btnResetPass.Text = "Reset Passowrd";
             btnResetPass.TextAlign = ContentAlignment.MiddleRight;
@@ -226,7 +226,7 @@
             btnCreate.Location = new Point(0, 3);
             btnCreate.Name = "btnCreate";
             btnCreate.Padding = new Padding(21, 0, 21, 0);
-            btnCreate.Size = new Size(238, 57);
+            btnCreate.Size = new Size(259, 57);
             btnCreate.TabIndex = 3;
             btnCreate.Text = "Create Account";
             btnCreate.TextAlign = ContentAlignment.MiddleRight;
@@ -290,7 +290,7 @@
             btnPrint3.Location = new Point(-3, 125);
             btnPrint3.Name = "btnPrint3";
             btnPrint3.Padding = new Padding(23, 0, 35, 0);
-            btnPrint3.Size = new Size(238, 65);
+            btnPrint3.Size = new Size(259, 65);
             btnPrint3.TabIndex = 5;
             btnPrint3.Text = "Print";
             btnPrint3.UseVisualStyleBackColor = true;
@@ -306,7 +306,7 @@
             btnManageScore.Location = new Point(-3, 65);
             btnManageScore.Name = "btnManageScore";
             btnManageScore.Padding = new Padding(23, 0, 21, 0);
-            btnManageScore.Size = new Size(238, 57);
+            btnManageScore.Size = new Size(259, 57);
             btnManageScore.TabIndex = 4;
             btnManageScore.Text = "Manage Score";
             btnManageScore.TextAlign = ContentAlignment.MiddleRight;
@@ -323,7 +323,7 @@
             btnNewScore.Location = new Point(0, 3);
             btnNewScore.Name = "btnNewScore";
             btnNewScore.Padding = new Padding(21, 0, 50, 0);
-            btnNewScore.Size = new Size(238, 57);
+            btnNewScore.Size = new Size(259, 57);
             btnNewScore.TabIndex = 3;
             btnNewScore.Text = "New Score";
             btnNewScore.TextAlign = ContentAlignment.MiddleRight;
@@ -378,11 +378,12 @@
             btnPrint2.Location = new Point(0, 124);
             btnPrint2.Name = "btnPrint2";
             btnPrint2.Padding = new Padding(21, 0, 105, 0);
-            btnPrint2.Size = new Size(241, 56);
+            btnPrint2.Size = new Size(262, 56);
             btnPrint2.TabIndex = 5;
             btnPrint2.Text = "Print";
             btnPrint2.TextAlign = ContentAlignment.MiddleRight;
             btnPrint2.UseVisualStyleBackColor = true;
+            btnPrint2.Click += btnPrint2_Click;
             // 
             // btnMC
             // 
@@ -395,11 +396,12 @@
             btnMC.Location = new Point(0, 65);
             btnMC.Name = "btnMC";
             btnMC.Padding = new Padding(23, 0, 10, 0);
-            btnMC.Size = new Size(245, 53);
+            btnMC.Size = new Size(266, 53);
             btnMC.TabIndex = 4;
             btnMC.Text = "Manage Course";
             btnMC.TextAlign = ContentAlignment.MiddleRight;
             btnMC.UseVisualStyleBackColor = true;
+            btnMC.Click += btnMC_Click;
             // 
             // btnNew
             // 
@@ -412,11 +414,12 @@
             btnNew.Location = new Point(0, 3);
             btnNew.Name = "btnNew";
             btnNew.Padding = new Padding(21, 0, 40, 0);
-            btnNew.Size = new Size(241, 57);
+            btnNew.Size = new Size(262, 57);
             btnNew.TabIndex = 3;
             btnNew.Text = "New Course";
             btnNew.TextAlign = ContentAlignment.MiddleRight;
             btnNew.UseVisualStyleBackColor = true;
+            btnNew.Click += btnNew_Click;
             // 
             // btnCourse
             // 
@@ -467,10 +470,11 @@
             btnprint1.Location = new Point(0, 125);
             btnprint1.Name = "btnprint1";
             btnprint1.Padding = new Padding(25, 0, 29, 0);
-            btnprint1.Size = new Size(238, 56);
+            btnprint1.Size = new Size(259, 56);
             btnprint1.TabIndex = 5;
             btnprint1.Text = "Print";
             btnprint1.UseVisualStyleBackColor = true;
+            btnprint1.Click += btnprint1_Click;
             // 
             // btnManage1
             // 
@@ -483,7 +487,7 @@
             btnManage1.Location = new Point(0, 64);
             btnManage1.Name = "btnManage1";
             btnManage1.Padding = new Padding(25, 0, 0, 0);
-            btnManage1.Size = new Size(238, 56);
+            btnManage1.Size = new Size(259, 56);
             btnManage1.TabIndex = 4;
             btnManage1.Text = "Manage Student ";
             btnManage1.TextAlign = ContentAlignment.MiddleRight;
@@ -501,7 +505,7 @@
             btnRegistration.Location = new Point(3, 3);
             btnRegistration.Name = "btnRegistration";
             btnRegistration.Padding = new Padding(21, 0, 45, 0);
-            btnRegistration.Size = new Size(235, 56);
+            btnRegistration.Size = new Size(256, 56);
             btnRegistration.TabIndex = 3;
             btnRegistration.Text = "Registration";
             btnRegistration.TextAlign = ContentAlignment.MiddleRight;

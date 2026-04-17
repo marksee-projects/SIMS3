@@ -37,6 +37,7 @@
             panel_datagrid = new Panel();
             panel10 = new Panel();
             panel2 = new Panel();
+            panel9 = new Panel();
             button_Clear = new Button();
             button_Upload = new Button();
             label7 = new Label();
@@ -63,7 +64,6 @@
             button_AddStudent = new Button();
             panel8 = new Panel();
             panel1 = new Panel();
-            panel9 = new Panel();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Student).BeginInit();
             panel_datagrid.SuspendLayout();
@@ -102,6 +102,7 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(938, 88);
             panel3.TabIndex = 19;
+            panel3.Paint += panel3_Paint;
             // 
             // label5
             // 
@@ -188,6 +189,15 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(878, 553);
             panel2.TabIndex = 23;
+            // 
+            // panel9
+            // 
+            panel9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel9.BackColor = Color.Silver;
+            panel9.Location = new Point(0, 289);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(878, 7);
+            panel9.TabIndex = 35;
             // 
             // button_Clear
             // 
@@ -537,15 +547,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(878, 64);
             panel1.TabIndex = 19;
-            // 
-            // panel9
-            // 
-            panel9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel9.BackColor = Color.Silver;
-            panel9.Location = new Point(0, 289);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(878, 7);
-            panel9.TabIndex = 35;
             // 
             // RegistryFormcs
             // 

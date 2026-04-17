@@ -70,6 +70,10 @@ namespace SIMS3
 
             // Optional: Hide the little row header arrow column on the far left to make it cleaner
             dataGridView_Student.RowHeadersVisible = false;
+            dataGridView_Student.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            // 2. Center all the text inside every single cell in the grid
+            dataGridView_Student.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void button_Upload_Click(object sender, EventArgs e)
