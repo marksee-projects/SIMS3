@@ -35,15 +35,13 @@ namespace SIMS3
         public void showData(MySqlCommand command)
         {
 
-            // 1. Change the query to ONLY select active students (IsActive = 1)
-            string studentQuery = "SELECT * FROM `student` WHERE `IsActive` = 1";
-            dataGridView_Student.DataSource = student.getStudentlist(new MySqlCommand(studentQuery));
-
-            // 2. Hide the IsActive column so it doesn't show up on the screen/printout
-            // Note: Make sure "dataGridView_Student" matches the actual name of your grid!
+            dataGridView_Student.DataSource = student.getStudentlist(command);
+         
             dataGridView_Student.Columns["IsActive"].Visible = false;
+
             DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
-            dataGridView_Student.DataSource = student.getlist(command);
+            imageColumn = (DataGridViewImageColumn)dataGridView_Student.Columns[9];
+            imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
 
             imageColumn = (DataGridViewImageColumn)dataGridView_Student.Columns[9];
 
@@ -83,8 +81,11 @@ namespace SIMS3
 
         private void PrintStudent_Load(object sender, EventArgs e)
         {
+            //By default, we want to show only the active students, so we filter them with IsActive = 1
+            showData(new MySqlCommand("SELECT * FROM `student` WHERE `IsActive` = 1"));
 
-           //populate the combobox with courses name
+
+            //populate the combobox with courses name
             comboBox1.DataSource = course.getCourse(new MySqlCommand("SELECT * FROM `course`"));
             comboBox1.DisplayMember = "CourseName";
             comboBox1.ValueMember = "CourseName";
