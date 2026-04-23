@@ -112,6 +112,8 @@ namespace SIMS3
                 query += " AND `Student ID` IN (SELECT `Student ID` FROM `score` WHERE TRIM(`CourseName`) = TRIM(@cName) AND `IsActive` = 1)";
             }
 
+            query += " ORDER BY `Student ID` DESC";
+
             MySqlCommand command = new MySqlCommand(query);
 
             if (!string.IsNullOrWhiteSpace(comboBox1.Text))
@@ -122,24 +124,60 @@ namespace SIMS3
             showData(command);
 
             clearFields();
-
         }
 
         private void button_Print_Click(object sender, EventArgs e)
         {
+            // 1. SAVE CURRENT STYLES
+            Font originalFont = dataGridView_Student.DefaultCellStyle.Font;
+            Color originalBg = dataGridView_Student.DefaultCellStyle.BackColor;
+            Color originalText = dataGridView_Student.DefaultCellStyle.ForeColor;
+            Font originalHeaderFont = dataGridView_Student.ColumnHeadersDefaultCellStyle.Font;
+
+            // 2. TEMPORARILY APPLY PRINT-FRIENDLY (WHITE BACKGROUND, SMALL TEXT) STYLES
+            dataGridView_Student.DefaultCellStyle.Font = new Font("Segoe UI", 7, FontStyle.Regular);
+            dataGridView_Student.DefaultCellStyle.BackColor = Color.White;
+            dataGridView_Student.DefaultCellStyle.ForeColor = Color.Black;
+
+            dataGridView_Student.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+            dataGridView_Student.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+
+            // Shrink header font slightly so it fits better and keep dark colors
+            dataGridView_Student.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 8, FontStyle.Bold);
+
+            // 3. PRINTER SETTINGS
             printer.Title = "SIMS Student List";
             printer.SubTitle = string.Format("Date: {0}", DateTime.Now.ToString("MMMM dd, yyyy"));
             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
             printer.RowHeight = DGVPrinter.RowHeightSetting.CellHeight;
             printer.PageNumbers = true;
             printer.PageNumberInHeader = false;
-            printer.PorportionalColumns = true;
             printer.HeaderCellAlignment = StringAlignment.Near;
             printer.Footer = "SIMS3";
             printer.FooterSpacing = 15;
             printer.printDocument.DefaultPageSettings.Landscape = true;
             printer.printDocument.DefaultPageSettings.Margins = new System.Drawing.Printing.Margins(30, 30, 30, 30);
+
+            // This forces all columns onto one page width
+            printer.ColumnWidth = DGVPrinter.ColumnWidthSetting.Porportional;
+
+            // 4. EXECUTE PRINT
             printer.PrintDataGridView(dataGridView_Student);
+
+            // 5. RESTORE YOUR DARK THEME TO THE SCREEN
+            dataGridView_Student.DefaultCellStyle.Font = originalFont;
+            dataGridView_Student.DefaultCellStyle.BackColor = originalBg;
+            dataGridView_Student.DefaultCellStyle.ForeColor = originalText;
+
+            dataGridView_Student.AlternatingRowsDefaultCellStyle.BackColor = originalBg;
+            dataGridView_Student.AlternatingRowsDefaultCellStyle.ForeColor = originalText;
+            dataGridView_Student.ColumnHeadersDefaultCellStyle.Font = originalHeaderFont;
+
+            this.Activate();
+            this.BringToFront();
+
+            // 7. SHOW THE SUCCESS MESSAGE
+            MessageBox.Show("The document has been exported successfully!", "Print Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

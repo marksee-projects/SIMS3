@@ -193,12 +193,12 @@
             label5.AutoSize = true;
             label5.Font = new Font("Showcard Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(344, 21);
+            label5.Location = new Point(334, 26);
             label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(271, 37);
+            label5.Size = new Size(290, 37);
             label5.TabIndex = 1;
-            label5.Text = "Mange Account";
+            label5.Text = "Manage Account";
             // 
             // panel1
             // 

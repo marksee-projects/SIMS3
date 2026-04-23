@@ -89,6 +89,7 @@ namespace SIMS3
         public DataTable searchStudent(string searchData, int statusFilter)
         {
             string query = "SELECT * FROM `student` WHERE CONCAT_WS(' ', `Student ID`, `FirstName`, `MiddleName`, `LastName`, `Suffix`) LIKE @search";
+
             if (statusFilter == 1)
             {
                 query += " AND `IsActive` = 1";
@@ -97,6 +98,8 @@ namespace SIMS3
             {
                 query += " AND `IsActive` = 0";
             }
+
+            query += " ORDER BY `Student ID` DESC";
 
             MySqlCommand command = new MySqlCommand(query, connect.GetConnection());
             command.Parameters.AddWithValue("@search", "%" + searchData + "%");
@@ -107,13 +110,13 @@ namespace SIMS3
 
             return table;
         }
-        
 
 
-    
 
-            // Method to update student data
-            public bool updateStudent(int id, string fname, string mname, string lname, string suffix, DateTime bdate, string gender, string phone, string address, byte[] img)
+
+
+        // Method to update student data
+        public bool updateStudent(int id, string fname, string mname, string lname, string suffix, DateTime bdate, string gender, string phone, string address, byte[] img)
             {
          
                 string query = "UPDATE `student` SET `FirstName`=@fn, `MiddleName`=@mn, `LastName`=@ln, `Suffix`=@sfx, `Birthdate`=@bd, `Gender`=@gd, `Phone`=@ph, `Address`=@adr, `Photo`=@img WHERE `Student ID`=@id";

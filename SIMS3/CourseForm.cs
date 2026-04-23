@@ -80,6 +80,7 @@ namespace SIMS3
         public void showData()
         {
             dataGridView_Course.DataSource = course.getCourse(new MySqlCommand("SELECT * FROM `course` ORDER BY `Course ID` DESC"));
+            dataGridView_Course.Columns["IsActive"].Visible = false;
             dataGridView_Course.Columns["CourseUnits"].DefaultCellStyle.Format = "0.0";
             dataGridView_Course.BackgroundColor = Color.FromArgb(34, 40, 64); 
             dataGridView_Course.GridColor = Color.FromArgb(50, 60, 90);    

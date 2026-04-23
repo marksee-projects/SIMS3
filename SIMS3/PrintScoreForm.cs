@@ -27,27 +27,56 @@ namespace SIMS3
 
         private void button_Print_Click(object sender, EventArgs e)
         {
-            printer.Title = "SIMS Student Score List";
+            Font originalFont = dataGridView_Score.DefaultCellStyle.Font;
+            Color originalBg = dataGridView_Score.DefaultCellStyle.BackColor;
+            Color originalText = dataGridView_Score.DefaultCellStyle.ForeColor;
+            Font originalHeaderFont = dataGridView_Score.ColumnHeadersDefaultCellStyle.Font;
 
-         
+            dataGridView_Score.DefaultCellStyle.Font = new Font("Segoe UI", 7, FontStyle.Regular);
+            dataGridView_Score.DefaultCellStyle.BackColor = Color.White;
+            dataGridView_Score.DefaultCellStyle.ForeColor = Color.Black;
+
+            dataGridView_Score.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+            dataGridView_Score.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+
+            dataGridView_Score.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 8, FontStyle.Bold);
+        
+            if (dataGridView_Score.Columns.Contains("IsActive"))
+            {
+                dataGridView_Score.Columns["IsActive"].Visible = false;
+            }
+
+            printer.Title = "Student Score List";
             printer.SubTitle = string.Format("Date: {0}", DateTime.Now.ToString("MMMM dd, yyyy"));
             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
             printer.RowHeight = DGVPrinter.RowHeightSetting.CellHeight;
-
             printer.PageNumbers = true;
             printer.PageNumberInHeader = false;
-            printer.PorportionalColumns = true;
             printer.HeaderCellAlignment = StringAlignment.Near;
             printer.Footer = "SIMS";
             printer.FooterSpacing = 15;
             printer.printDocument.DefaultPageSettings.Landscape = true;
-
-
             printer.printDocument.DefaultPageSettings.Margins = new System.Drawing.Printing.Margins(30, 30, 30, 30);
+
+            printer.ColumnWidth = DGVPrinter.ColumnWidthSetting.Porportional;
+            printer.PorportionalColumns = true;
 
             printer.PrintDataGridView(dataGridView_Score);
 
+            dataGridView_Score.DefaultCellStyle.Font = originalFont;
+            dataGridView_Score.DefaultCellStyle.BackColor = originalBg;
+            dataGridView_Score.DefaultCellStyle.ForeColor = originalText;
+
+            dataGridView_Score.AlternatingRowsDefaultCellStyle.BackColor = originalBg;
+            dataGridView_Score.AlternatingRowsDefaultCellStyle.ForeColor = originalText;
+            dataGridView_Score.ColumnHeadersDefaultCellStyle.Font = originalHeaderFont;
+
+            this.Activate();
+            this.BringToFront();
+
+            MessageBox.Show("The Score list has been exported successfully!", "Print Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+        
 
         private void PrintScoreForm_Load(object sender, EventArgs e)
         {
