@@ -24,7 +24,9 @@ namespace SIMS3
             this.role = userRole;
 
             hideSubMenu();
+            label4.Text = fName;
             label7.Text = userRole;
+            label3.Text = userRole;
 
             CheckUserPermissions();
 
@@ -75,7 +77,7 @@ namespace SIMS3
             label_male.Text = "Male: " + student.maleStudents();
             label_female.Text = "Female: " + student.femaleStudents();
         }
-        
+
 
 
         //toggle methods
@@ -255,5 +257,41 @@ namespace SIMS3
         {
 
         }
+
+        private void btnpanel_MouseEnter(object sender, EventArgs e)
+        {
+            Control hoveredPanel = (Control)sender;
+            hoveredPanel.BackColor = Color.FromArgb(45, 60, 105);
+        }
+
+        private void btnpanel_MouseLeave(object sender, EventArgs e)
+        {
+            Control leftPanel = (Control)sender;
+            leftPanel.BackColor = Color.FromArgb(25, 33, 62);
+        }
+
+        private void dropbtn_MouseEnter(object sender, EventArgs e)
+        {
+            Control hoveredBtn = (Control)sender;
+            hoveredBtn.BackColor = Color.FromArgb(85, 105, 210);
+        }
+
+        private void dropbtn_MouseLeave(object sender, EventArgs e)
+        {
+            Control leftBtn = (Control)sender;
+            leftBtn.BackColor = Color.FromArgb(56, 71, 160);
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
     }
 }

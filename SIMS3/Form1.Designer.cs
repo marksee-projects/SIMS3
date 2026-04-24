@@ -144,6 +144,8 @@
             btnHome.Text = "Home";
             btnHome.UseVisualStyleBackColor = true;
             btnHome.Click += btnHome_Click;
+            btnHome.MouseEnter += btnpanel_MouseEnter;
+            btnHome.MouseLeave += btnpanel_MouseLeave;
             // 
             // panel8
             // 
@@ -170,6 +172,8 @@
             btnExit.Text = "Exit";
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
+            btnExit.MouseEnter += btnpanel_MouseEnter;
+            btnExit.MouseLeave += btnpanel_MouseLeave;
             // 
             // panel12
             // 
@@ -207,6 +211,8 @@
             btnCreate.TextAlign = ContentAlignment.MiddleRight;
             btnCreate.UseVisualStyleBackColor = true;
             btnCreate.Click += btnCreate_Click;
+            btnCreate.MouseEnter += dropbtn_MouseEnter;
+            btnCreate.MouseLeave += dropbtn_MouseLeave;
             // 
             // panel7
             // 
@@ -233,6 +239,8 @@
             btnSetup.Text = "Account ";
             btnSetup.UseVisualStyleBackColor = true;
             btnSetup.Click += btnSetup_Click_1;
+            btnSetup.MouseEnter += btnpanel_MouseEnter;
+            btnSetup.MouseLeave += btnpanel_MouseLeave;
             // 
             // panel6
             // 
@@ -271,6 +279,8 @@
             btnPrint3.Text = "Print";
             btnPrint3.UseVisualStyleBackColor = true;
             btnPrint3.Click += btnPrint3_Click;
+            btnPrint3.MouseEnter += dropbtn_MouseEnter;
+            btnPrint3.MouseLeave += dropbtn_MouseLeave;
             // 
             // btnManageScore
             // 
@@ -286,10 +296,12 @@
             btnManageScore.Padding = new Padding(15, 0, 21, 0);
             btnManageScore.Size = new Size(238, 57);
             btnManageScore.TabIndex = 4;
-            btnManageScore.Text = "Manage Score";
+            btnManageScore.Text = "Manage Grade";
             btnManageScore.TextAlign = ContentAlignment.MiddleRight;
             btnManageScore.UseVisualStyleBackColor = true;
             btnManageScore.Click += btnManageScore_Click;
+            btnManageScore.MouseEnter += dropbtn_MouseEnter;
+            btnManageScore.MouseLeave += dropbtn_MouseLeave;
             // 
             // btnNewScore
             // 
@@ -305,10 +317,12 @@
             btnNewScore.Padding = new Padding(15, 0, 55, 0);
             btnNewScore.Size = new Size(238, 57);
             btnNewScore.TabIndex = 3;
-            btnNewScore.Text = "New Score";
+            btnNewScore.Text = "New Grade";
             btnNewScore.TextAlign = ContentAlignment.MiddleRight;
             btnNewScore.UseVisualStyleBackColor = true;
             btnNewScore.Click += btnNewScore_Click;
+            btnNewScore.MouseEnter += dropbtn_MouseEnter;
+            btnNewScore.MouseLeave += dropbtn_MouseLeave;
             // 
             // btnScore
             // 
@@ -324,9 +338,11 @@
             btnScore.Padding = new Padding(7, 0, 40, 0);
             btnScore.Size = new Size(238, 65);
             btnScore.TabIndex = 24;
-            btnScore.Text = "Score";
+            btnScore.Text = "Grade";
             btnScore.UseVisualStyleBackColor = true;
             btnScore.Click += btnScore_Click_1;
+            btnScore.MouseEnter += btnpanel_MouseEnter;
+            btnScore.MouseLeave += btnpanel_MouseLeave;
             // 
             // panel5
             // 
@@ -366,6 +382,8 @@
             btnPrint2.TextAlign = ContentAlignment.MiddleRight;
             btnPrint2.UseVisualStyleBackColor = true;
             btnPrint2.Click += btnPrint2_Click;
+            btnPrint2.MouseEnter += dropbtn_MouseEnter;
+            btnPrint2.MouseLeave += dropbtn_MouseLeave;
             // 
             // btnMC
             // 
@@ -385,6 +403,8 @@
             btnMC.TextAlign = ContentAlignment.MiddleRight;
             btnMC.UseVisualStyleBackColor = true;
             btnMC.Click += btnMC_Click;
+            btnMC.MouseEnter += dropbtn_MouseEnter;
+            btnMC.MouseLeave += dropbtn_MouseLeave;
             // 
             // btnNew
             // 
@@ -404,6 +424,8 @@
             btnNew.TextAlign = ContentAlignment.MiddleRight;
             btnNew.UseVisualStyleBackColor = true;
             btnNew.Click += btnNew_Click;
+            btnNew.MouseEnter += dropbtn_MouseEnter;
+            btnNew.MouseLeave += dropbtn_MouseLeave;
             // 
             // btnCourse
             // 
@@ -422,6 +444,8 @@
             btnCourse.Text = "Course";
             btnCourse.UseVisualStyleBackColor = true;
             btnCourse.Click += btnCourse_Click_1;
+            btnCourse.MouseEnter += btnpanel_MouseEnter;
+            btnCourse.MouseLeave += btnpanel_MouseLeave;
             // 
             // panel2
             // 
@@ -460,6 +484,8 @@
             btnprint1.Text = "Print";
             btnprint1.UseVisualStyleBackColor = true;
             btnprint1.Click += btnprint1_Click;
+            btnprint1.MouseEnter += dropbtn_MouseEnter;
+            btnprint1.MouseLeave += dropbtn_MouseLeave;
             // 
             // btnManage1
             // 
@@ -479,6 +505,8 @@
             btnManage1.TextAlign = ContentAlignment.MiddleRight;
             btnManage1.UseVisualStyleBackColor = true;
             btnManage1.Click += btnManage1_Click;
+            btnManage1.MouseEnter += dropbtn_MouseEnter;
+            btnManage1.MouseLeave += dropbtn_MouseLeave;
             // 
             // btnRegistration
             // 
@@ -498,6 +526,8 @@
             btnRegistration.TextAlign = ContentAlignment.MiddleRight;
             btnRegistration.UseVisualStyleBackColor = true;
             btnRegistration.Click += btnRegistration_Click;
+            btnRegistration.MouseEnter += dropbtn_MouseEnter;
+            btnRegistration.MouseLeave += dropbtn_MouseLeave;
             // 
             // btnStudent
             // 
@@ -516,6 +546,8 @@
             btnStudent.Text = "Student";
             btnStudent.UseVisualStyleBackColor = true;
             btnStudent.Click += btnStudent_Click_1;
+            btnStudent.MouseEnter += btnpanel_MouseEnter;
+            btnStudent.MouseLeave += btnpanel_MouseLeave;
             // 
             // panel4
             // 
@@ -542,22 +574,24 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(83, 37);
+            label3.Location = new Point(83, 38);
             label3.Name = "label3";
             label3.Size = new Size(121, 25);
             label3.TabIndex = 20;
             label3.Text = "Administrator";
+            label3.Click += label3_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ButtonHighlight;
-            label4.Location = new Point(83, 12);
+            label4.Location = new Point(83, 6);
             label4.Name = "label4";
             label4.Size = new Size(121, 31);
             label4.TabIndex = 19;
             label4.Text = "Username";
+            label4.Click += label4_Click;
             // 
             // pictureBox1
             // 
@@ -795,7 +829,7 @@
             pictureBox4.Location = new Point(0, 0);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(977, 730);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 0;
             pictureBox4.TabStop = false;
             // 

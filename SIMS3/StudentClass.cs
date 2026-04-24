@@ -189,7 +189,7 @@ namespace SIMS3
         // Method to get student count by course
         public DataTable getStudentCountByCourse(string courseName)
         {
-            string query = @"SELECT COUNT(DISTINCT CASE WHEN student.Gender = 'Male' THEN student.`Student ID` END) AS MaleCount, COUNT(DISTINCT CASE WHEN student.Gender = 'Female' THEN student.`Student ID` END) AS FemaleCount FROM student INNER JOIN score ON student.`Student ID` = score.`Student ID` WHERE TRIM(score.CourseName) = TRIM(@cName) AND student.IsActive = 1";
+            string query = @"SELECT COUNT(DISTINCT CASE WHEN student.Gender = 'Male' THEN student.`Student ID` END) AS MaleCount, COUNT(DISTINCT CASE WHEN student.Gender = 'Female' THEN student.`Student ID` END) AS FemaleCount FROM student INNER JOIN grade ON student.`Student ID` = grade.`Student ID` WHERE TRIM(grade.CourseName) = TRIM(@cName) AND student.IsActive = 1";
 
             MySqlCommand command = new MySqlCommand(query, connect.GetConnection());
 

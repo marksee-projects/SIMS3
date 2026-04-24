@@ -26,9 +26,11 @@ namespace SIMS3
         // function to show data in datagridview
         private void showScore()
         {
-            string query = "SELECT `Score ID`, `Student ID`, `CourseName`, `Score`, `Description` FROM `score` WHERE `IsActive` = 1 ORDER BY `Score ID` DESC";
+            string query = "SELECT `Grade ID`, `Student ID`, `CourseName`, `Grade`, `Description` FROM `grade` WHERE `IsActive` = 1 ORDER BY `Grade ID` DESC";
             dataGridView_score1.DataSource = scoreClass.getlist(new MySqlCommand(query));
-    
+            dataGridView_score1.Columns["Grade ID"].DisplayIndex = 0;
+            dataGridView_score1.Columns["Student ID"].DisplayIndex = 1;
+
             dataGridView_score1.BackgroundColor = Color.FromArgb(34, 40, 64);
             dataGridView_score1.GridColor = Color.FromArgb(50, 60, 90);
 

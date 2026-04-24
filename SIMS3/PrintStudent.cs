@@ -70,7 +70,7 @@ namespace SIMS3
 
             dataGridView_Student.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            // 2. Center all the text inside every single cell in the grid
+       
             dataGridView_Student.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
 

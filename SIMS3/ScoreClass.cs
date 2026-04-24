@@ -11,14 +11,15 @@ namespace SIMS3
         DBConnect connect = new DBConnect();
 
         // Create a function to insert course
-        public bool insertCourse(int stdId, string cName, double score, string desc)
+        // Create a function to insert grade
+        public bool insertCourse(int stdId, string cName, double grade, string desc)
         {
 
-            MySqlCommand command = new MySqlCommand("INSERT INTO `score`(`Student ID`, `CourseName`, `Score`, `Description`) VALUES (@stdId, @cName, @score, @desc)", connect.GetConnection());
+            MySqlCommand command = new MySqlCommand("INSERT INTO `grade`(`Student ID`, `CourseName`, `Grade`, `Description`) VALUES (@stdId, @cName, @grade, @desc)", connect.GetConnection());
 
             command.Parameters.Add("@stdId", MySqlDbType.Int32).Value = stdId;
             command.Parameters.Add("@cName", MySqlDbType.VarChar).Value = cName;
-            command.Parameters.Add("@score", MySqlDbType.Double).Value = score;
+            command.Parameters.Add("@grade", MySqlDbType.Double).Value = grade;
             command.Parameters.Add("@desc", MySqlDbType.VarChar).Value = desc;
 
             connect.openConnect();
@@ -37,8 +38,7 @@ namespace SIMS3
         }
 
 
-        //function to get score list
-
+        //function to get grade list
         public DataTable getlist(MySqlCommand command)
         {
             command.Connection = connect.GetConnection();
@@ -50,10 +50,10 @@ namespace SIMS3
 
         }
 
-        // Create a function to check if the score already exists for a given student and course
+        // Create a function to check if the grade already exists for a given student and course
         public bool checkScore(int stdId, string cName)
         {
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `score` WHERE `Student ID` = @stdId AND `CourseName` = @cName", connect.GetConnection());
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `grade` WHERE `Student ID` = @stdId AND `CourseName` = @cName", connect.GetConnection());
 
 
             command.Parameters.Add("@stdId", MySqlDbType.Int32).Value = stdId;
@@ -74,18 +74,19 @@ namespace SIMS3
             }
 
         }
-        // Create a function to update the score for a specific student and course
-        public bool updateScore(int stdId, string cName, double score, string desc)
+
+        // Create a function to update the grade for a specific student and course
+        public bool updateScore(int stdId, string cName, double grade, string desc)
         {
 
-            string query = "UPDATE `score` SET `Score` = @score, `Description` = @desc WHERE `Student ID` = @stdId AND `CourseName` = @cName";
+            string query = "UPDATE `grade` SET `Grade` = @grade, `Description` = @desc WHERE `Student ID` = @stdId AND `CourseName` = @cName";
 
             MySqlCommand command = new MySqlCommand(query, connect.GetConnection());
 
 
             command.Parameters.Add("@stdId", MySqlDbType.Int32).Value = stdId;
             command.Parameters.Add("@cName", MySqlDbType.VarChar).Value = cName;
-            command.Parameters.Add("@score", MySqlDbType.Double).Value = score;
+            command.Parameters.Add("@grade", MySqlDbType.Double).Value = grade;
             command.Parameters.Add("@desc", MySqlDbType.VarChar).Value = desc;
 
             connect.openConnect();
@@ -106,7 +107,7 @@ namespace SIMS3
         // Create a function to "delete" (deactivate) a course by setting IsActive to 0
         public bool deleteScore(int stdId, string cName)
         {
-            string query = "UPDATE `score` SET `IsActive` = 0 WHERE `Student ID` = @stdId AND `CourseName` = @cName";
+            string query = "UPDATE `grade` SET `IsActive` = 0 WHERE `Student ID` = @stdId AND `CourseName` = @cName";
 
             MySqlCommand command = new MySqlCommand(query, connect.GetConnection());
 
@@ -130,18 +131,18 @@ namespace SIMS3
         // This is the same as SearchCourse but it also checks if IsActive = 1 to hide deleted courses
         public DataTable SearchScore(string searchdata, int statusFilter)
         {
-            string query = "SELECT score.`Student ID` AS `Student ID`, student.FirstName AS `First Name`, student.LastName AS `Last Name`, score.CourseName AS `CourseName`, score.Score, score.Description, score.IsActive FROM score INNER JOIN student ON score.`Student ID` = student.`Student ID` WHERE (student.FirstName LIKE @search OR student.LastName LIKE @search OR score.CourseName LIKE @search OR score.`Student ID` LIKE @search)";
+            string query = "SELECT grade.`Student ID` AS `Student ID`, student.FirstName AS `First Name`, student.LastName AS `Last Name`, grade.CourseName AS `CourseName`, grade.Grade, grade.Description, grade.IsActive FROM grade INNER JOIN student ON grade.`Student ID` = student.`Student ID` WHERE (student.FirstName LIKE @search OR student.LastName LIKE @search OR grade.CourseName LIKE @search OR grade.`Student ID` LIKE @search)";
 
             if (statusFilter == 1)
             {
-                query += " AND score.IsActive = 1";
+                query += " AND grade.IsActive = 1";
             }
             else if (statusFilter == 0)
             {
-                query += " AND score.IsActive = 0";
+                query += " AND grade.IsActive = 0";
             }
 
-            query += " ORDER BY score.`Student ID` DESC";
+            query += " ORDER BY grade.`Student ID` DESC";
 
             MySqlCommand command = new MySqlCommand(query, connect.GetConnection());
             command.Parameters.AddWithValue("@search", "%" + searchdata + "%");

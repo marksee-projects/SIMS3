@@ -84,7 +84,7 @@ namespace SIMS3
         }
         private void showScore()
         {
-            string query = "SELECT score.`Student ID` AS `Student ID`, student.FirstName AS `First Name`, student.LastName AS `Last Name`, score.CourseName AS `CourseName`, score.Score, score.Description FROM score INNER JOIN student ON score.`Student ID` = student.`Student ID` WHERE score.IsActive = 1 ORDER BY score.`Score ID` DESC";
+            string query = "SELECT grade.`Student ID` AS `Student ID`, student.FirstName AS `First Name`, student.LastName AS `Last Name`, grade.CourseName AS `CourseName`, grade.Grade, grade.Description FROM grade INNER JOIN student ON grade.`Student ID` = student.`Student ID` WHERE grade.IsActive = 1 ORDER BY grade.`Grade ID` DESC";
 
             dataGridView_Score.DataSource = score.getlist(new MySqlCommand(query));
 
